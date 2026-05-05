@@ -1,0 +1,319 @@
+/* remove default browser spacing and make the page fill the full window */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', monospace;
+}
+
+/* map div fills the entire viewport so the map is full screen */
+#map-container {
+    height: 100%;
+    width: 100%;
+}
+
+/* title bar is pinned to the top of the screen and sits above the map */
+#title-bar {
+    position: absolute;
+    /* take it out of normal flow so it overlays the map */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    /* white at 75% opacity */
+    backdrop-filter: blur(4px);
+    /* frosted glass blur behind the bar */
+    -webkit-backdrop-filter: blur(4px);
+    /* same blur, Safari support */
+    padding: 12px 24px;
+    box-sizing: border-box;
+    /* padding is included in the 100% width */
+    z-index: 2;
+    /* sit above the map layer */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    /* subtle drop shadow */
+}
+
+/* title text inside the bar */
+#map-title {
+    margin: 0;
+    font-size: 30px;                  
+    font-weight: 900;                /* Extra bold */
+    color: #3a3665;                  /* Dark indigo */
+    letter-spacing: 1px;              /* More spacing for impact */
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Inter', 'Inter', serif; /* Classic serif font */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),      /* Drop shadow */
+                 0 0 20px rgba(106, 127, 229, 0.3); /* Subtle glow */
+}
+
+/*move the default Mapbox zoom controls down so they don't overlap with the title bar */
+.mapboxgl-ctrl-top-right {
+    top: 60px;
+}
+
+/* Tour controls container */
+#tour-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+    display: none; /* Hidden initially */
+}
+
+/* Tour buttons */
+#tour-controls button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#start-walk-btn {
+    background: #1e1b4b;
+    color: white;
+}
+
+#start-walk-btn:hover {
+    background: #312e81;
+    transform: translateY(-2px);
+}
+
+#next-stop-btn {
+    background: #6a7fe5;
+    color: white;
+}
+
+#next-stop-btn:hover:not(:disabled) {
+    background: #5558e8;
+    transform: translateY(-2px);
+}
+
+#next-stop-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===========================================
+   Welcome Floating Panel on the Left
+   =========================================== */
+
+/* Welcome panel container - small floating panel on the left */
+#welcome-panel {
+    position: absolute;              /* Fixed position relative to viewport */
+    top: 60px;                       /* Start at same level as stop panel */
+    left: 10px;                      /* Small margin from left */
+    width: 250px;                    /* Narrow width */
+    background: rgba(255, 255, 255, 0.95); /* Nearly opaque white background */
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15); /* Shadow for floating effect */
+    z-index: 5;                      /* Above the map */
+    padding: 16px;                   /* Inner spacing */
+    box-sizing: border-box;          /* Include padding in width */
+    border-radius: 8px 8px 0 0;    /* Rounded top corners */
+    transform: translateX(0);        /* Slide in from left */
+    transition: transform 0.3s ease; /* Smooth slide animation */
+}
+
+/* Hidden state - slide panel left */
+#welcome-panel.hidden {
+    transform: translateX(-100%);   /* Move completely off the left edge */
+}
+
+/* Close button for the welcome panel */
+#close-welcome {
+    position: absolute;              /* Position in top-right corner */
+    top: 8px;
+    right: 8px;
+    background: none;                /* No background */
+    border: none;                    /* No border */
+    font-size: 20px;                 /* Smaller X button */
+    cursor: pointer;                 /* Show clickable cursor */
+    color: #1e1b4b;                  /* Match theme color */
+    line-height: 1;
+}
+
+#close-welcome:hover {
+    color: #5558e8;                  /* Change color on hover */
+}
+
+/* Welcome panel heading */
+#welcome-panel h2 {
+    margin: 0 0 8px 0;               /* Remove default margin, add space below */
+    font-size: 18px;                 /* Smaller heading */
+    color: #1e1b4b;                  /* Dark indigo theme color */
+    line-height: 1.3;
+}
+
+/* Welcome panel paragraph */
+#welcome-panel p {
+    margin: 0 0 12px 0;              /* Space below */
+    font-size: 14px;                 /* Smaller text */
+    color: #4b5563;                  /* Gray text color */
+    line-height: 1.4;
+}
+
+/* Neighborhood buttons container */
+#neighborhood-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Neighborhood buttons */
+.neighborhood-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #6a7fe5;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.neighborhood-btn:hover {
+    background: #5558e8;
+    transform: translateY(-1px);
+}
+
+/* Stop list buttons */
+.stop-list-btn {
+    background: none;
+    border: none;
+    color: #1e1b4b;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: left;
+    padding: 12px 16px;
+    width: 100%;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.stop-list-btn:hover {
+    background: rgba(106, 127, 229, 0.1);
+    color: #5558e8;
+    border-color: rgba(106, 127, 229, 0.2);
+    transform: translateX(4px);
+}
+
+/* ===========================================
+   Stop Information Side Panel
+   =========================================== */
+
+/* Side panel container - appears on the right side of the screen */
+#stop-panel {
+    position: absolute;              /* Fixed position relative to viewport */
+    top: 60px;                       /* Start below the title bar */
+    right: 0;                        /* Align to the right edge */
+    width: 33.33%;                    /* Take up 1/3 of the screen width */
+    height: calc(100vh - 60px);      /* Full viewport height minus title bar */
+    background: rgba(255, 255, 255, 0.95); /* Nearly opaque white background */
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15); /* Left-side shadow for depth */
+    z-index: 10;                     /* Above the map */
+    overflow-y: auto;                /* Enable vertical scrolling */
+    transform: translateX(0);        /* Slide in from right */
+    transition: transform 0.3s ease; /* Smooth slide animation */
+}
+
+/* Hidden state - slide panel off-screen */
+#stop-panel.hidden {
+    transform: translateX(100%);   /* Move completely off the right edge */
+}
+
+/* Close button for the side panel */
+#close-panel {
+    position: absolute;              /* Position in top-right corner */
+    top: 12px;
+    right: 16px;
+    background: none;                /* No background */
+    border: none;                    /* No border */
+    font-size: 32px;                 /* Large X button */
+    cursor: pointer;                 /* Show clickable cursor */
+    color: #1e1b4b;                  /* Match theme color */
+    line-height: 1;
+    z-index: 11;                     /* Above panel content */
+}
+
+#close-panel:hover {
+    color: #5558e8;                  /* Change color on hover */
+}
+
+/* Content container inside the side panel */
+#stop-content {
+    padding: 24px;                   /* Inner spacing */
+    padding-top: 60px;               /* Extra top padding to clear close button */
+}
+
+/* Image styling in side panel */
+#stop-content img {
+    width: 100%;                     /* Full panel width */
+    height: auto;                    /* Maintain aspect ratio */
+    border-radius: 8px;              /* Rounded corners */
+    margin-bottom: 20px;             /* Space below image */
+}
+
+/* Stop name heading in side panel */
+#stop-content h2 {
+    margin: 0 0 16px 0;              /* Remove default margin, add space below */
+    font-size: 24px;                 /* Larger heading for side panel */
+    color: #1e1b4b;                  /* Dark indigo theme color */
+    line-height: 1.3;
+}
+
+/* Description text in side panel */
+#stop-content p {
+    margin: 0;
+    font-size: 15px;                 /* Slightly larger for readability */
+    color: #4b5563;                  /* Gray text color */
+    line-height: 1.6;                /* Comfortable line spacing */
+    white-space: pre-wrap;           /* Preserve \n line breaks from JSON */
+}
+
+/* Stop list styling */
+#stop-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#stop-content li {
+    margin-bottom: 8px;
+}
+
+#stop-content h3 {
+    margin: 24px 0 16px 0;
+    font-size: 22px;
+    color: #1e1b4b;
+    font-weight: 500;
+}
+
+/* Stop list buttons */
+.stop-list-btn {
+    background: none;
+    border: none;
+    color: #1e1b4b;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: left;
+    padding: 8px 0;
+    width: 100%;
+}
+
+.stop-list-btn:hover {
+    color: #5558e8;
+    text-decoration: underline;
+}

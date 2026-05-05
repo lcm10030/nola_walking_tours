@@ -1,0 +1,108 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Start Point",
+        "description": "Arrive by Streetcar and begin your walking tour at the corner of St. Charles Avenue and Washington Avenue.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_avif,h_610,q_65,w_1439/v1/clients/neworleans/NOTMC_527_c9fcf216-c230-4dba-8def-77c2846127fd.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08057637600535,
+          29.933916688898407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 1: Buckner Mansion",
+        "description": "The first stop is a house that, according to local tour guides and travel sites alike, is one of the most popular sites to see in the Garden District; just at a glance, it's not very surprising to see why. Fans of American Horror Story will recognize it from seasons three and eight of the series, and the house itself owes its construction to a bit of the \"friendly\" rivalry so common among the students at \"Miss Robichaux's Academy for Exceptional Young Ladies.\"\n\nIn 1856, Kentucky-born cotton factor Henry Sullivan Buckner officially became business partners with prominent Irish-born cotton broker and plantation owner Frederick Stanton. In his chosen hometown of Natchez, Mississippi, Stanton was mid-construction on his grand estate and future National Historic Landmark: Stanton Hall, an opulent Greek Revival-style manor that encompasses an entire city block that he would later die in after only three years in residence. Despite already owning several other impressive homes in New Orleans, Buckner hired Lewis E. Reynolds, Stanton's architect, to design another mansion in 1857 to rival that of his business partner. Situated on the corner of Jackson Avenue and Coliseum Street, the grand, two-story structure includes a basement, the regal stone and cast-iron front gate (with lanterns), and a wide wrap-around balcony and veranda sporting Corinthian and Ionic columns respectively.\n\nWhen they moved into their newest, most opulent home in 1860, the Buckners numbered seven in total: Henry, his wife Catherine, and their five children ranging from 23 to 5 years old. By 1880, the eldest Buckner daughters were married, though Laura, the second daughter, her husband Cartwright Eustis, and their own five children joined Mr. and Mrs. Buckner and the family's one live-in maid Sally. By 1883, both Buckners had died, and the Eustis family purchased the home from the remaining Buckner siblings. In the next seven years, Laura had another five children, and she and multiple children and grandchildren continued living in the home until 1920. Laura sold her home of 60 years to Albert and Edward Soulé who moved their business school—started the same year Buckner was inspired to create the estate—into the Buckner Mansion. They added a brick classroom building to the back of the property in later years, holding classes until the school closed its doors in 1983. In 1990, Sandra and Norman King purchased the building and began a series of major restorations that were continued in 1997 by the current owners Susan and Charles Zambito.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,g_xy_center,h_675,q_65,w_1200,x_1363,y_786/v1/clients/neworleans/Buckner_Mansion_597de6a6-b1ff-432c-9a77-bce0ac7bfc5d.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.07917,
+          29.93190
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 2: Morris-Israel House",
+        "description": "This cast-iron adorned, pink, Italianate-style home is one of a neighboring pair designed by Irish immigrant Samuel Jamison. Jamison purchased the lots containing the two homes (and now a third) in 1867 alongside the commissioner and first owner of 1331 First St. Joseph C. Morris, a wealthy local cordage salesman. The two men split the lots in 1869, and construction of the two homes began under Jamison's direction. Upon its completion in November of that year, Morris' house garnered enough attention that the Daily Picayune published an article praising the octagonal wings and \"really beautiful bedrooms,\" calling it \"among the most beautiful and elegant houses which have lately been erected in the Garden District.\"\n\nMorris, a Massachusetts native, moved into the house with his wife Elizabeth and their four children, with a fifth on the way. Tragically, after the birth of their son, both Elizabeth and the baby died within the week. The heartbroken Morris never remarried, and his mother-in-law Jane moved in to help raise his other children with the help of five live-in servants. Morris served on the Sewage and Water Board and the local school board until he died in 1903. His eldest daughter Jennie inherited the home and married Dr. Charles Chassaignac, a medical professor at Tulane and a founder of the Ear, Eye, Nose, and Throat Hospital. Much like her mother, Jennie died after barely a year in ownership, leaving the home to her then-4-year-old daughter who she named Elizabeth in her mother's honor. Dr. Chassaignac remarried and had five more children who all lived in the house until the newly-married Elizabeth reached maturity in 1921 and sold the property—home to the Morris family for over 50 years—to William Feldman.\n\nFeldman began a six-year period of drastic renovations that stole some of the building's historic beauty; balconies were enclosed into kitchens, mismatched additions were tacked on, and the side yard was sold to Dr. John Elliott, one of Dr. Chassaignac's colleagues, who built the house that stands between the house and its sibling. In 1926, another Tulane Medical College professor Dr. Ralph Hopkins—a dermatologist famous for his work in Carville, LA, the national quarantine residence/research hospital for people with Hansen's disease (leprosy)—purchased the home, which remained in his family for over 40 years. The Morris-Israel House became a single-family home again in the 60s and Meryl and Sam Israel Jr. returned it to its former glory.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Morris_Israel_a1adf710-1c4c-4b85-90c9-b68e0d937422.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08074,
+          29.93042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 3: Brevard-Clapp-Rice House",
+        "description": "While the base structure of this house is not much different than most others in the area, the fine details are what set it apart as one of the Garden District's finest Greek Revival-style mansions. Commission merchant Albert Brevard had lived in New Orleans for five years before contracting architect James Calrow and builder Charles Pride to build a home for him and his family—insect and weather-resistant cypress wood for the galleries outside, cedar-lined closets, protective lightning rods, a 9000-gallon cistern for water, two servant's rooms, and four bedrooms were all \"basic\" amenities. The opulence shone through in the internal and external detail. All of the interior decorative wood—including staircases, arches, and washstands—was solid mahogany, the cylinder glass was imported from France, and all the mantels were made of the finest, most-fashionable marble. Outside, the first-floor Ionic and second-floor Corinthian columns are placed en antae (bracketed by box columns), their cream tone contrasting the dark, intricate cast-iron galleries and balustrade. All of this is framed beneath a tall, bracketed cornice and surrounded by a delicate cast-iron fence.\n\nUnfortunately, Albert Brevard spent very little time in his luxurious dream home, and after his death in 1859 at only 54 years old, his wife and children returned to their native Missouri where she died eight months later. Their children sold the house in 1869 to cotton broker Emory Clapp, the only person to make any substantial architectural change to the building. Before his death in 1880, Clapp added a library and bedroom above it along with a corresponding gallery on the Camp Street side. The Clapp family owned the home until 1935. Larger interior renovations were made by a few subsequent owners, including prominent Republican lawyer and federal Judge John Minor Wisdom who owned the home between 1947 and 1972.\n\nUntil 2010, this grand home belonged to New Orleans' resident queen of supernatural literature Anne Rice and served as the setting for her 1990 novel The Witching Hour. Visitors to the Rice home said the family both preserved the elegant character and details of the historic structure while also adding their own sense of style—including an extensive collection of antique European dolls displayed in the formal parlor.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Brevard_Clapp_Rice_52f6cb6d-ebd6-4a5e-9fdc-b9970feb215c.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08015,
+          29.92967
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 4: Rodenberg-Lane-Gundlach House",
+        "description": "Straying from the popular Italianate style so popular in the Garden District is this Greek Revival mansion, built and occupied by German-native and feed dealer John H. Rodenberg in 1853. This grand two-and-a-half-story estate sported bronze door knobs, cypress woodwork, and doors with keyhole locks (invented in 1848; we still use a variation of this same design today!) within 18-inch thick walls and beneath 14-foot ceilings. With over 9,000 square feet of space, Rodenberg and his wife began a sort of tradition at 1238 Philip St.: a full house. Upon moving into the home, the couple was accompanied by their six children—ranging from 17 to 2 years old—their maid Sarah, and their butler Wilhelm. \n\nThe house was sold in 1867 but passed into new hands due to bankruptcy and then an auction, where one woman bought and then conveyed the home to Ann Eliza Gary, the wife of Confederate veteran and cotton factor John T. Hardie in 1869. The Hardie family brought another set of six children along with four live-in servants, adding three more children and one more servant in the first ten years. After an additional four years with 16 people under one roof, Mrs. Hardie purchased an adjacent lot to expand. Three of the subsequent owners were veterans—two Confederate and one from World War I. English awning manufacturer William Henry Dark Brook and his wife shared the home with an adult daughter, two maids, a butler, and two cooks, and his successor, state legislator David Pipes, expanded the property even further to accommodate his wife and seven children. Mrs. Pipes sold the home to her grandson-in-law and federal judge Wayne Borah, whose heirs sold the property to Harry Merritt Lane Jr. in 1966. The Lanes put the house through some major renovations before selling the property to the current owners, the Gundlachs, in 1987.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Brevard_Clapp_Rice_52f6cb6d-ebd6-4a5e-9fdc-b9970feb215c.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.07927,
+          29.93026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 5: Rendevouz Tavern",
+        "description": "Stop for a drink and some jazz music at this tavern on the historic Maganize Streeet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08566,
+          29.92460
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "End Point",
+        "description": "Finish your tour at the corner of St Charles Avenue and 8th Street, where you can board the streetcar again to explore more of the city"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08879010445163,
+          29.929091521690466
+        ]
+      }
+    }
+  ]
+}

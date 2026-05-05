@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"> <!-- sets character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- makes page responsive on mobile -->
+    <title>Assignment 3</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.css" rel="stylesheet"> <!-- Mapbox styles -->
+    <link rel="stylesheet" href="styles.css"> <!-- our custom styles -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.js"></script> <!-- Mapbox library -->
+</head>
+
+<body>
+    <!-- the map renders inside this div, it fills the full screen -->
+    <div id="map-container"></div>
+
+    <!-- title bar floats over the top of the map -->
+    <div id="title-bar">
+        <h1 id="map-title">New Orleans Architecture Walks</h1>
+    </div>
+
+    <!-- Welcome top panel -->
+    <div id="welcome-panel">
+        <button id="close-welcome">&times;</button>
+        <h2>Welcome to New Orleans!</h2>
+        <p>Click on a neighborhood to learn more about its history, explore the walking tour and its stops.</p>
+        <div id="neighborhood-buttons">
+            <button class="neighborhood-btn" data-neighborhood="garden">Garden District</button>
+            <button class="neighborhood-btn" data-neighborhood="marigny">Marigny</button>
+        </div>
+    </div>
+
+    <!-- walking tour controls -->
+    <div id="tour-controls">
+        <button id="start-walk-btn">Start Walk</button>
+        <button id="next-stop-btn" disabled>Next Stop</button>
+    </div>
+
+    <!-- Stop information side panel (replaces popup) -->
+    <div id="stop-panel" class="hidden">
+        <button id="close-panel">&times;</button>
+        <div id="stop-content"></div>
+    </div>
+
+
+    <!-- load our map script last so the page elements exist before the script runs -->
+    <script src="script.js"></script>
+</body>
+
+</html>
