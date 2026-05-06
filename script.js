@@ -97,6 +97,11 @@ map.on('load', () => {
         data: 'marignystops.json'
     });
 
+    map.addSource('bywater-boundaries', {
+        type: 'geojson',
+        data: 'bywaterboundaries.json'
+    });
+
     // Layers - initially hidden for walks and stops
     // Garden walking tour line layer
     map.addLayer({
@@ -224,6 +229,17 @@ map.on('load', () => {
         source: 'marigny-boundaries',
         paint: {
             'fill-color': '#80b3ed',
+            'fill-opacity': 0.4
+        }
+    });
+
+    // Bywater district boundaries fill layer
+    map.addLayer({
+        id: 'bywater-boundaries',
+        type: 'fill',
+        source: 'bywater-boundaries',
+        paint: {
+            'fill-color': '#f98cb2',
             'fill-opacity': 0.4
         }
     });
