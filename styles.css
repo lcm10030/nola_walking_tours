@@ -4,7 +4,7 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', monospace;
+    font-family: 'Inter', monospace;
 }
 
 /* map div fills the entire viewport so the map is full screen */
@@ -262,17 +262,20 @@ html {
 #stop-content img {
     width: 100%;                     /* Full panel width */
     height: auto;                    /* Maintain aspect ratio */
-    border-radius: 8px;              /* Rounded corners */
+    border-radius: 8px; 
+    margin-top: 10px;             /* Rounded corners */
     margin-bottom: 20px;             /* Space below image */
 }
 
-/* Stop name heading in side panel */
+/* Stop/neighborhood name heading in side panel */
 #stop-content h2 {
     margin: 0 0 16px 0;              /* Remove default margin, add space below */
-    font-size: 24px;                 /* Larger heading for side panel */
-    color: #1e1b4b;                  /* Dark indigo theme color */
+    font-size: 26px;                 /* Larger heading for side panel */
+    color: #1e1b4b;  
+    font-weight: bold;                /* Dark indigo theme color */
     line-height: 1.3;
 }
+
 
 /* Description text in side panel */
 #stop-content p {
@@ -303,17 +306,24 @@ html {
 
 /* Stop list buttons */
 .stop-list-btn {
-    background: none;
+    background: linear-gradient(135deg, #467e4d, #3aac45); /* Fun blue gradient */
+    color: white;
     border: none;
-    color: #1e1b4b;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 500;
+    font-weight: bold;
     text-align: left;
-    padding: 8px 0;
     width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .stop-list-btn:hover {
-    color: #5558e8;
-    text-decoration: underline;
+    background: linear-gradient(135deg, #00ced9, #4596dc); /* Reverse gradient on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }

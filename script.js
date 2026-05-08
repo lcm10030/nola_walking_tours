@@ -2,7 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGNtMTAwMzAiLCJhIjoiY21uaTJ1c2lwMDh0aDJ3b2Z4b
 
 const initialView = {
     center: [-90.08706, 29.95319],
-    zoom: 11.8
+    zoom: 12
 };
 
 const map = new mapboxgl.Map({
@@ -27,30 +27,42 @@ map.addControl(new mapboxgl.NavigationControl());
 let currentStop = -1;
 let tourStops = [];
 let currentNeighborhood = null; // Track selected neighborhood
+let boundaryPopup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false });
 
 // Neighborhood data
 const neighborhoods = {
     garden: {
         name: 'Garden District',
         description: 'The Garden District is a historic neighborhood known for its stunning Victorian architecture, oak-lined streets, and beautiful gardens. Explore the opulent mansions and learn about the history of this iconic area.',
-        photos: ['https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Brevard_Clapp_Rice_52f6cb6d-ebd6-4a5e-9fdc-b9970feb215c.jpg'],
+        photos: ['https://www.neworleanslegendarywalkingtours.com/garden-district-trolley.webp'],
         center: [-90.08441, 29.93134],
-        zoom: 13,
+        zoom: 14,
         boundariesSource: 'garden-boundaries',
         walkSource: 'garden-walk',
         stopsSource: 'tour-stops',
-        stopsFile: 'gardenstops.json'
+        stopsFile: 'garden/gardenstops.json'
     },
     marigny: {
         name: 'Marigny',
         description: 'The Marigny neighborhood is a vibrant area with Creole cottages, historic homes, and a mix of cultures. Discover the unique architecture and rich history of this eclectic district.',
         photos: [], // Add photos if available
         center: [-90.058, 29.967], // Approximate center for Marigny
-        zoom: 13,
+        zoom: 14,
         boundariesSource: 'marigny-boundaries',
         walkSource: 'marigny-walk',
         stopsSource: 'marigny-stops',
-        stopsFile: 'marignystops.json'
+        stopsFile: 'marigny/marignystops.json'
+    },
+    bywater: {
+        name: 'Bywater',
+        description: 'A dynamic and exciting neighborhood, Bywater is filled with artist housing and galleries, a plethora of eclectic eateries, and historic buildings ranging from the grand to the humble. Tucked alongside the Mississippi River between Faubourg Marigny and Holy Cross, Bywater sits atop some of the earliest land grants in the city. The largest plantation here, known as La Brasserie, featured a brewery that historians believe was one of the first manufacturing enterprises in the city. ',
+        photos: ['https://www.bywater.org/wp-content/uploads/2021/03/Bywater-houses-1536x1024.jpeg'], // Added photo for Bywater
+        center: [-90.03996, 29.96670], // Approximate center for Bywater
+        zoom: 14,
+        boundariesSource: 'bywater-boundaries',
+        walkSource: 'bywater-walk',
+        stopsSource: 'bywater-stops',
+        stopsFile: 'bywater/bywaterstops.json'
     }
 };
 
@@ -68,38 +80,47 @@ map.on('load', () => {
     // Sources for Garden District
     map.addSource('garden-boundaries', {
         type: 'geojson',
-        data: 'gardenboundaries.json'
+        data: 'garden/gardenboundaries.json'
     });
 
     map.addSource('garden-walk', {
         type: 'geojson',
-        data: 'gardenwalk.json'
+        data: 'garden/gardenwalk.json'
     });
 
     map.addSource('tour-stops', {
         type: 'geojson',
-        data: 'gardenstops.json'
+        data: 'garden/gardenstops.json'
     });
 
     // Sources for Marigny
     map.addSource('marigny-boundaries', {
         type: 'geojson',
-        data: 'marignyboundaries.json'
+        data: 'marigny/marignyboundaries.json'
     });
 
     map.addSource('marigny-walk', {
         type: 'geojson',
-        data: 'marignywalk.json'
+        data: 'marigny/marignywalk.json'
     });
-
     map.addSource('marigny-stops', {
         type: 'geojson',
-        data: 'marignystops.json'
+        data: 'marigny/marignystops.json'
     });
-
+    // Sources for Bywater
     map.addSource('bywater-boundaries', {
         type: 'geojson',
-        data: 'bywaterboundaries.json'
+        data: 'bywater/bywaterboundaries.json'
+    });
+
+    map.addSource('bywater-walk', {
+        type: 'geojson',
+        data: 'bywater/bywaterwalk.json'
+    });
+
+    map.addSource('bywater-stops', {
+        type: 'geojson',
+        data: 'bywater/bywaterstops.json'
     });
 
     // Layers - initially hidden for walks and stops
@@ -244,23 +265,92 @@ map.on('load', () => {
         }
     });
 
+    // Bywater walking tour line layer - added for Bywater neighborhood
+    map.addLayer({
+        id: 'bywater-walk',
+        type: 'line',
+        source: 'bywater-walk',
+        layout: {
+            'visibility': 'none', // Hidden initially
+            'line-join': 'round',
+            'line-cap': 'round'
+        },
+        paint: {
+            'line-color': '#e55e5e',
+            'line-width': 2,
+            'line-dasharray': [2, 4] // dashed line pattern
+        }
+    });
+
+    // Bywater tour stops point layer 
+    map.addLayer({
+        id: 'bywater-stops-points',
+        type: 'circle',
+        source: 'bywater-stops',
+        layout: {
+            'visibility': 'none' // Hidden initially
+        },
+        paint: {
+            'circle-radius': [
+                'case',
+                ['boolean', ['feature-state', 'active'], false],
+                14,
+                8
+            ],
+            'circle-color': [
+                'case',
+                ['boolean', ['feature-state', 'active'], false],
+                '#16a34a',
+                '#e55e5e'
+            ],
+            'circle-stroke-width': [
+                'case',
+                ['boolean', ['feature-state', 'active'], false],
+                4,
+                2
+            ],
+            'circle-stroke-color': '#ffffff',
+            'circle-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'active'], false],
+                0.95,
+                0.8
+            ]
+        }
+    });
+
+    // Ensure stop points and walk lines are above boundaries so map clicks target stops first
+    // Added Bywater layers to the move list
+    map.moveLayer('garden-walk');
+    map.moveLayer('tour-stops-points');
+    map.moveLayer('marigny-walk');
+    map.moveLayer('marigny-stops-points');
+    map.moveLayer('bywater-walk');
+    map.moveLayer('bywater-stops-points');
+
     // Load Garden stops initially (or none, but for now load Garden)
-    fetch('gardenstops.json')
+    fetch('garden/gardenstops.json')
         .then(response => response.json())
         .then(data => {
             data.features.forEach((feature, index) => {
                 feature.id = index;
+                if (feature.properties) {
+                    feature.properties.id = index;
+                }
             });
             tourStops = data.features;
             map.getSource('tour-stops').setData(data);
         });
 
     // Load Marigny stops
-    fetch('marignystops.json')
+    fetch('marigny/marignystops.json')
         .then(response => response.json())
         .then(data => {
             data.features.forEach((feature, index) => {
                 feature.id = index;
+                if (feature.properties) {
+                    feature.properties.id = index;
+                }
             });
             map.getSource('marigny-stops').setData(data);
         });
@@ -274,13 +364,35 @@ map.on('load', () => {
         selectNeighborhood('marigny');
     });
 
+    // Added click handler for Bywater boundaries
+    map.on('click', 'bywater-boundaries', () => {
+        selectNeighborhood('bywater');
+    });
+
     // Change cursor on hover over boundaries
-    map.on('mouseenter', ['garden-boundaries', 'marigny-boundaries'], () => {
+    // Added bywater-boundaries to the list
+    map.on('mouseenter', ['garden-boundaries', 'marigny-boundaries', 'bywater-boundaries'], () => {
         map.getCanvas().style.cursor = 'pointer';
     });
 
-    map.on('mouseleave', ['garden-boundaries', 'marigny-boundaries'], () => {
+    map.on('mousemove', ['garden-boundaries', 'marigny-boundaries', 'bywater-boundaries'], (event) => {
+        const feature = event.features && event.features[0];
+        if (!feature) return;
+
+        let label = '';
+        if (feature.layer.id === 'garden-boundaries') label = 'Garden District';
+        else if (feature.layer.id === 'marigny-boundaries') label = 'Marigny';
+        else if (feature.layer.id === 'bywater-boundaries') label = 'Bywater';
+
+        boundaryPopup
+            .setLngLat(event.lngLat)
+            .setHTML(`<div style="font-size:14px; color:#111; background:#fff; border:1px solid rgba(0,0,0,0.15); border-radius:8px; padding:8px 12px; box-shadow:0 4px 12px rgba(0,0,0,0.12);">${label}</div>`)
+            .addTo(map);
+    });
+
+    map.on('mouseleave', ['garden-boundaries', 'marigny-boundaries', 'bywater-boundaries'], () => {
         map.getCanvas().style.cursor = '';
+        boundaryPopup.remove();
     });
 
     // Click handlers for stop points (only when visible)
@@ -292,12 +404,18 @@ map.on('load', () => {
         handleStopClick(event, 'marigny-stops');
     });
 
+    // Added click handler for Bywater stops
+    map.on('click', 'bywater-stops-points', (event) => {
+        handleStopClick(event, 'bywater-stops');
+    });
+
     // Pointer cursor for stops
-    map.on('mouseenter', ['tour-stops-points', 'marigny-stops-points'], () => {
+    // Added bywater-stops-points to the list
+    map.on('mouseenter', ['tour-stops-points', 'marigny-stops-points', 'bywater-stops-points'], () => {
         map.getCanvas().style.cursor = 'pointer';
     });
 
-    map.on('mouseleave', ['tour-stops-points', 'marigny-stops-points'], () => {
+    map.on('mouseleave', ['tour-stops-points', 'marigny-stops-points', 'bywater-stops-points'], () => {
         map.getCanvas().style.cursor = '';
     });
 });
@@ -329,24 +447,47 @@ function selectNeighborhood(neighborhoodKey) {
     map.setLayoutProperty('tour-stops-points', 'visibility', 'none');
     map.setLayoutProperty('marigny-walk', 'visibility', 'none');
     map.setLayoutProperty('marigny-stops-points', 'visibility', 'none');
+    map.setLayoutProperty('bywater-walk', 'visibility', 'none');
+    map.setLayoutProperty('bywater-stops-points', 'visibility', 'none');
 
     // Show selected neighborhood's walk and stops
-    map.setLayoutProperty(neighborhood.walkSource, 'visibility', 'visible');
-    map.setLayoutProperty(neighborhood.stopsSource + '-points', 'visibility', 'visible');
+    if (neighborhood.walkSource) {
+        map.setLayoutProperty(neighborhood.walkSource, 'visibility', 'visible');
+    }
+    if (neighborhood.stopsSource) {
+        map.setLayoutProperty(neighborhood.stopsSource + '-points', 'visibility', 'visible');
+    }
 
-    // Load stops for the selected neighborhood
-    fetch(neighborhood.stopsFile)
-        .then(response => response.json())
-        .then(data => {
-            data.features.forEach((feature, index) => {
-                feature.id = index;
+    // Hide the selected neighborhood's boundary label when its tour opens
+    const selectedLabel = `${neighborhoodKey}-boundary-label`;
+    if (map.getLayer(selectedLabel)) {
+        map.setLayoutProperty(selectedLabel, 'visibility', 'none');
+    }
+
+    // Show neighborhood info in side panel immediately
+    showNeighborhoodPanel(neighborhood, []);
+
+    // Load stops for the selected neighborhood if available
+    if (neighborhood.stopsFile) {
+        fetch(neighborhood.stopsFile)
+            .then(response => response.json())
+            .then(data => {
+                data.features.forEach((feature, index) => {
+                    feature.id = index;
+                    if (feature.properties) {
+                        feature.properties.id = index;
+                    }
+                });
+                tourStops = data.features;
+                map.getSource(neighborhood.stopsSource).setData(data);
+
+                // Update panel with loaded stops
+                showNeighborhoodPanel(neighborhood, tourStops);
+            })
+            .catch(() => {
+                // No stops file, keep panel as is
             });
-            tourStops = data.features;
-            map.getSource(neighborhood.stopsSource).setData(data);
-
-            // Show neighborhood info in side panel
-            showNeighborhoodPanel(neighborhood, tourStops);
-        });
+    }
 
     // Reset tour state
     updateActiveStop(-1);
@@ -359,10 +500,16 @@ function selectNeighborhood(neighborhoodKey) {
  */
 function handleStopClick(event, stopsSource) {
     const feature = event.features && event.features[0];
-    if (!feature || feature.id == null) return;
+    if (!feature) return;
 
-    updateActiveStop(feature.id);
-    const stopCoords = tourStops[feature.id].geometry.coordinates;
+    const featureId = feature.id != null ? feature.id : feature.properties?.id;
+    if (featureId == null) return;
+
+    const stop = tourStops.find(stop => stop.id == featureId || stop.properties?.id == featureId) || tourStops[Number(featureId)];
+    if (!stop) return;
+
+    updateActiveStop(Number(featureId));
+    const stopCoords = stop.geometry.coordinates;
 
     map.flyTo({
         center: stopCoords,
@@ -370,7 +517,9 @@ function handleStopClick(event, stopsSource) {
         essential: true
     });
 
-    showStopPopup(tourStops[feature.id]);
+    showStopPopup(stop);
+    welcomePanel.classList.add('hidden');
+    stopPanel.classList.remove('hidden');
     nextStopBtn.disabled = false;
     nextStopBtn.textContent = 'Next Stop';
 }
@@ -404,7 +553,7 @@ neighborhoodBtns.forEach(btn => {
 startWalkBtn.addEventListener('click', () => {
     if (!currentNeighborhood || tourStops.length === 0) return;
 
-    currentStop = 0;
+    updateActiveStop(0);
     const startCoords = tourStops[0].geometry.coordinates;
 
     map.flyTo({
@@ -446,7 +595,7 @@ nextStopBtn.addEventListener('click', () => {
 
 // Function to show neighborhood information in the side panel
 function showNeighborhoodPanel(neighborhood, stops) {
-    let html = `<h2>${neighborhood.name}</h2>`;
+    let html = `<h2 class="neighborhood-title">${neighborhood.name}</h2>`;
     html += `<p>${neighborhood.description}</p>`;
 
     // Add photos
@@ -492,22 +641,25 @@ function showNeighborhoodPanel(neighborhood, stops) {
 // Function to show stop information in the side panel
 function showStopPopup(stop) {
     const props = stop.properties;
-    
+
     // Build the HTML content for the side panel
     let html = '';
-    
+
     // Add image if available
     if (props.image) {
         html += `<img src="${props.image}" alt="${props.name || 'Stop image'}">`;
     }
-    
+
     // Add stop name and description
     html += `<h2>${props.name || 'Stop'}</h2>`;
     html += `<p>${props.description || ''}</p>`;
-    
+
     // Insert content into the side panel
     stopContent.innerHTML = html;
-    
+
+    // Scroll panel content to the top for a new stop
+    stopPanel.scrollTop = 0;
+
     // Show the side panel (remove hidden class)
     stopPanel.classList.remove('hidden');
 }
@@ -523,12 +675,8 @@ closePanelBtn.addEventListener('click', () => {
     map.setLayoutProperty('tour-stops-points', 'visibility', 'none');
     map.setLayoutProperty('marigny-walk', 'visibility', 'none');
     map.setLayoutProperty('marigny-stops-points', 'visibility', 'none');
-
-    // Reset state
-    currentNeighborhood = null;
-    updateActiveStop(-1);
-    nextStopBtn.disabled = true;
-    nextStopBtn.textContent = 'Next Stop';
+    map.setLayoutProperty('bywater-walk', 'visibility', 'none');
+    map.setLayoutProperty('bywater-stops-points', 'visibility', 'none');
 
     // Zoom to initial view
     map.flyTo({

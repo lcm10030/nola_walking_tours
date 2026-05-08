@@ -66,7 +66,7 @@
       "properties": {
         "name": "Stop 4: Rodenberg-Lane-Gundlach House",
         "description": "Straying from the popular Italianate style so popular in the Garden District is this Greek Revival mansion, built and occupied by German-native and feed dealer John H. Rodenberg in 1853. This grand two-and-a-half-story estate sported bronze door knobs, cypress woodwork, and doors with keyhole locks (invented in 1848; we still use a variation of this same design today!) within 18-inch thick walls and beneath 14-foot ceilings. With over 9,000 square feet of space, Rodenberg and his wife began a sort of tradition at 1238 Philip St.: a full house. Upon moving into the home, the couple was accompanied by their six children—ranging from 17 to 2 years old—their maid Sarah, and their butler Wilhelm. \n\nThe house was sold in 1867 but passed into new hands due to bankruptcy and then an auction, where one woman bought and then conveyed the home to Ann Eliza Gary, the wife of Confederate veteran and cotton factor John T. Hardie in 1869. The Hardie family brought another set of six children along with four live-in servants, adding three more children and one more servant in the first ten years. After an additional four years with 16 people under one roof, Mrs. Hardie purchased an adjacent lot to expand. Three of the subsequent owners were veterans—two Confederate and one from World War I. English awning manufacturer William Henry Dark Brook and his wife shared the home with an adult daughter, two maids, a butler, and two cooks, and his successor, state legislator David Pipes, expanded the property even further to accommodate his wife and seven children. Mrs. Pipes sold the home to her grandson-in-law and federal judge Wayne Borah, whose heirs sold the property to Harry Merritt Lane Jr. in 1966. The Lanes put the house through some major renovations before selling the property to the current owners, the Gundlachs, in 1987.",
-        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Brevard_Clapp_Rice_52f6cb6d-ebd6-4a5e-9fdc-b9970feb215c.jpg"
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Rodenberg_Lane_79f3378d-bda4-424f-82d1-a92da23d2947.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -79,7 +79,37 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Stop 5: Rendevouz Tavern",
+        "name": "Stop 5: Women's Opera Guild House",
+        "description": "This beautiful combination of Italianate and Greek Revival-style architecture is another home that now serves as something more. Behind its intricate iron gate, the pristine Women’s Opera Guild House has long stood as a base for the cultivation of New Orleans’ artistic scene. The original house was built in 1858 for merchant Edward Davis by William Freret (cousin of the previously-mentioned James Freret). Sometime in the late 19th century, the distinctive octagonal bay with its delicate entablature was added to the structure. Among the highlights of this well-manicured property include the detailing around the uppermost windows, the elegant design of the front door glass, cast-iron balustrade, and the Corinthian and Ionic columns.\n\nThe most notable owners of the home were Dr. Herman deBachellé Seebold and his wife Nettie Kinney Seebold, known throughout New Orleans for their generous contributions to the arts. Dr. Seebold’s parents and siblings were also fixtures in the city’s artistic circles; his father W. E. Seebold was called the “art connoisseur of New Orleans” as he, along with owning an art shop and being a painter himself, hosted weekly gatherings for artists and writers including Mark Twain and George Washington Cable. Some of Seebold’s art is still hanging in the home today. Part of what drew the couple’s interest specifically to the New Orleans Opera was Mrs. Seebold’s cousin opera singer cousin Baronne de Wartegg who made her debut at New Orleans’ Grand Opera House. Mrs. Seebold was an active member of the Women’s Guild of the New Orleans Opera from its founding until her death in 1966.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Opera_House_3cb88d2d-6126-4c6a-a53b-c439e60a9695.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08270,
+          29.93083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 6: Robinson House",
+        "description": "This monument to Italianate architecture comes once again from Henry Howard, built for Virginia cotton merchant Walter G. Robinson and his new wife Emily Hanford, a woman over 20 years his junior. Construction began around 1857 but was, naturally, impeded by the Civil War. When it was finally completed in 1867, the estate was a pinnacle of opulence both inside and out. The double-curved verandahs give the house its distinct silhouette and are only enhanced by the cast-iron balustrade, cornice and parapet, and finely-carved front entrance. Overlooking the southern side of the yard— what was once a garden but now has a pool— is an intricate, rose-patterned cast-iron verandah, while the northern side still holds the two-story carriage house, which also contained the kitchen building. Robinson’s interior decor was just as lavish, with delicate plaster cornices and centerpieces on colorful, nearly 16-foot ceilings and a curved staircase in the large front hall.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/W_G_Robinson_673e7026-11de-4de8-88f1-7e0adad28956.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08260, 
+          29.92993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 7: Rendevouz Tavern",
         "description": "Stop for a drink and some jazz music at this tavern on the historic Maganize Streeet"
       },
       "geometry": {
