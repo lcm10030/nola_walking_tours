@@ -1,0 +1,117 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Start Point",
+                "description": "Arrive to Bywater and start your tour in Crescent Park, a 20-acre, 1.4-mile linear riverfront park located along the Mississippi River, stretching from the French Market District down through the Bywater neighborhood",
+                "image": "https://www.hargreaves.com/wp-content/uploads/2019/07/Hargreaves-Associates-Crescent-Park-00_Intro.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.04472, 29.96131
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Stop 1: The Piety Street Bridge",
+                "description": "Enter from the Piety Street gate and walk up the \"Rusty Rainbow\" — a dramatic Cor-Ten steel pedestrian arch bridge designed by landscape architect David Waggonner. From the top, you get an aerial read of the neighborhood's roofline: a dense, low patchwork of gabled Creole cottages and shotgun houses, all oriented toward the river. This viewpoint is the best way to understand Bywater's geography before you dive into it.",
+                "image": "https://images.squarespace-cdn.com/content/v1/60d63e1b11dd0d4befad3a2d/1631884295366-9FU5WE9QCRUG5UFM9KGM/Crescent_Park.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.04325, 29.96149
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Stop 2: Shotgun Houses on Chartres Street",
+                "description": "Walk up into the neighborhood along Chartres. This is shotgun central. The shotgun single is the defining house type here: one room wide, built perpendicular to the street, with rooms lined up front to back so a bullet (or breeze) could theoretically pass straight through. Look for the telltale details — louvered wood shutters, cypress siding, high ceilings with transom windows, and houses raised on brick piers to handle flooding and ventilation. Many are painted in the brilliant tropical palettes Bywater is famous for.",
+                "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_666,q_65,w_640/v1/clients/neworleans/NOTMC_35815_c441de63-8721-49f6-852d-3b010193516f.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.04980, 29.96345
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Stop 3: StudioBE",
+                "description": "A converted warehouse that is both an architectural specimen and a destination. The building's bones — exposed brick, open steel trusses, raw concrete — tell the story of Bywater's industrial past. Inside, artist Brandan \"BMike\" Odums has filled 30,000 square feet with monumental murals that make the space feel like a cathedral. Even from the outside, the scale of the building against the surrounding shotguns is striking.",
+                "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,q_75,w_1200/v1/crm/neworleans/NOTMC_527330-f351b32a5056b36_f351b807-5056-b365-abd3388e47dfb129.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.04760, 29.96398
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Stop 4: Royal Street, the Camelback Block",
+                "description": "This is the best single block to study Bywater's house typology all at once. Look for: double shotguns (mirrored twin units sharing a center wall), camelbacks (a second story rises at the rear like a hump — a clever way to add space while keeping the street-facing façade low and tax-friendly under old assessment rules), and the occasional Italianate Victorian with decorative bracketing, turned porch columns, and carved cornices from the 1880s–90s boom years.",
+                "image": "https://media.vrbo.com/lodging/34000000/33980000/33973100/33973053/9ef4abf3.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.04330, 29.96299
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Stop 5: Bywater Art Lofts",
+                "description": "A 1940s brick industrial building converted into live/work artist housing. Compare it to the surrounding wood-frame vernacular — the contrast between the masonry warehouse and the delicate balloon-frame shotguns next door captures the whole history of the neighborhood in one glance. Notice how the streets here preserve an almost unbroken 19th-century streetwall.",
+                "image": "https://images.huffingtonpost.com/2013-10-30-131030_blog_photo_ricemill3.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.03839, 29.96292
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Stop 7: Vaughn's Lounge",
+                "description": "A dive bar that’s been a neighborhood institution since the 1950s. The unassuming exterior gives way to a cozy interior filled with local character. It’s the perfect spot to soak in the authentic Bywater vibe and maybe strike up a conversation with a local about the neighborhood’s history and culture.",
+                "image": "https://scoundrelsfieldguide.com/wp-content/uploads/2021/08/New-Orleans-Vaughans-3-scaled.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.03363, 29.96187
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "End Point: Bacchanal",
+                "description": "Finish your tour at Bacchanal, a beloved wine bar and music venue that epitomizes the Bywater spirit. The outdoor courtyard is a lush oasis where you can enjoy live jazz performances while sipping on a glass of wine. It’s the perfect way to unwind and reflect on the rich tapestry of history and culture you’ve just explored throughout the neighborhood.",
+                "image":"https://assets.myneworleans.com/2022/06/FXsxFmyt-BacchanalYard.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.03320, 29.95969
+                ]
+            }
+        }
+    ]
+}

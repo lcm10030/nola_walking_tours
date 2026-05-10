@@ -44,8 +44,8 @@ const neighborhoods = {
     },
     marigny: {
         name: 'Marigny',
-        description: 'The Marigny neighborhood is a vibrant area with Creole cottages, historic homes, and a mix of cultures. Discover the unique architecture and rich history of this eclectic district.',
-        photos: [], // Add photos if available
+        description: "The Faubourg Marigny (fow-BURG MAR-in-ee) was platted in 1806 by the dissolute Creole aristocrat Bernard de Marigny, who reportedly gambled away the family fortune and had to subdivide his downriver plantation to cover his debts. The result was a dense, irregular grid of lots sold to a mixed population of free people of color, Creole tradespeople, and recent immigrants — giving the Marigny a demographic complexity that shows up directly in its architecture. Where the French Quarter is formal and mercantile, the Marigny is domestic, intimate, and wildly colorful.",
+        photos: ['https://www.cms.cajunencounters.com/wp-content/uploads/2020/11/Screen-Shot-2020-11-13-at-11.33.29-AM.png'], // Add photos if available
         center: [-90.058, 29.967], // Approximate center for Marigny
         zoom: 14,
         boundariesSource: 'marigny-boundaries',
@@ -260,7 +260,7 @@ map.on('load', () => {
         type: 'fill',
         source: 'bywater-boundaries',
         paint: {
-            'fill-color': '#f98cb2',
+            'fill-color': '#f8a3c0',
             'fill-opacity': 0.4
         }
     });
@@ -364,35 +364,8 @@ map.on('load', () => {
         selectNeighborhood('marigny');
     });
 
-    // Added click handler for Bywater boundaries
     map.on('click', 'bywater-boundaries', () => {
         selectNeighborhood('bywater');
-    });
-
-    // Change cursor on hover over boundaries
-    // Added bywater-boundaries to the list
-    map.on('mouseenter', ['garden-boundaries', 'marigny-boundaries', 'bywater-boundaries'], () => {
-        map.getCanvas().style.cursor = 'pointer';
-    });
-
-    map.on('mousemove', ['garden-boundaries', 'marigny-boundaries', 'bywater-boundaries'], (event) => {
-        const feature = event.features && event.features[0];
-        if (!feature) return;
-
-        let label = '';
-        if (feature.layer.id === 'garden-boundaries') label = 'Garden District';
-        else if (feature.layer.id === 'marigny-boundaries') label = 'Marigny';
-        else if (feature.layer.id === 'bywater-boundaries') label = 'Bywater';
-
-        boundaryPopup
-            .setLngLat(event.lngLat)
-            .setHTML(`<div style="font-size:14px; color:#111; background:#fff; border:1px solid rgba(0,0,0,0.15); border-radius:8px; padding:8px 12px; box-shadow:0 4px 12px rgba(0,0,0,0.12);">${label}</div>`)
-            .addTo(map);
-    });
-
-    map.on('mouseleave', ['garden-boundaries', 'marigny-boundaries', 'bywater-boundaries'], () => {
-        map.getCanvas().style.cursor = '';
-        boundaryPopup.remove();
     });
 
     // Click handlers for stop points (only when visible)
