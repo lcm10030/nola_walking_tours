@@ -1,4 +1,135 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Start Point: St Roch Market",
+        "description": "Start your tour at the St Roch Market, a historic public market that has been serving the community since 1875. Enjoy a delicious breakfast or grab a coffee before you begin your walk through the Marigny neighborhood.",
+        "image": "https://inbounddestinations.com/wp-content/uploads/2017/11/Screen-Shot-2017-11-12-at-1.41.23-PM.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05020, 29.96894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 1:  The Faubourg Marigny Marker",
+        "description":"This marker at the corner of North Rampart and Franklin sits at the original edge of Marigny's plantation, and it's a good place to study how the neighborhood transitions from the French Quarter. North Rampart was the back-of-town boundary — \"the wrong side of the tracks\" — in the Creole social geography, where the grid loosens and the buildings become humbler. The corner Creole cottages here, hipped-roof and flush to the banquette, are some of the most characteristic vernacular structures in the city.",
+        "image": "https://lh3.googleusercontent.com/proxy/cu_fKuYmEZ7TKQe4BVApxxStogCh_urpsWkGOv15-xlKmh78G4XSR32zl4wgiufuecJrHkaEvCiOHsDM"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05048, 29.96803
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 2: Shotgum Houses of Dauphine Street",
+        "description": "The shotgun houses of Dauphine Street in the Faubourg Marigny represent one of the purest surviving expressions of New Orleans vernacular architecture — a building type that is both climatically ingenious and socially legible. The form is deceptively simple: one room wide (typically 12 to 15 feet), built perpendicular to the street on the long axis of the French colonial arpent lot, with rooms lined up front to back so that every door aligns and a breeze — or, legendarily, a shotgun blast — could pass straight through without obstruction. What makes Dauphine Street remarkable is the density and continuity of the type: block after block of these narrow facades pressed flush to the brick banquette, each one a slight variation on the same theme. Some are shotgun singles, housing one family end to end. Others are double shotguns, mirrored twin units sharing a center party wall, the working-class duplex of the 19th-century South. A handful have been camelbacked — a second story rising at the rear like a hump, added when a family needed more space but couldn't afford to expand the footprint into the tiny rear yard.\n\nThe construction is balloon frame or heavy timber, typically cypress, with high ceilings (10 to 12 feet) that allow hot air to stratify above the living zone, louvered wood shutters that admit airflow while blocking the brutal afternoon sun, and a front gallery — the stoop and porch rolled into one — that acts as a transitional space between the public street and the private interior. Raised on brick piers a foot or two above grade, the houses acknowledge the flood-prone ground while also drawing cooler air under the floorboards. On Dauphine, the paint colors have become as much a part of the architecture as the wood itself: deep turquoises, burnt oranges, pale yellows, and electric greens that turn what might read as monotonous repetition into something exuberant and alive — a street that is unmistakably, irreducibly New Orleans.",
+        "image": "https://commonedge.org/wp-content/uploads/2021/05/banner_shotguns_higher-res-1000x625.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05466, 29.96570
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 3: Brevard-Clapp-Rice House",
+        "description": "While the base structure of this house is not much different than most others in the area, the fine details are what set it apart as one of the Garden District's finest Greek Revival-style mansions. Commission merchant Albert Brevard had lived in New Orleans for five years before contracting architect James Calrow and builder Charles Pride to build a home for him and his family—insect and weather-resistant cypress wood for the galleries outside, cedar-lined closets, protective lightning rods, a 9000-gallon cistern for water, two servant's rooms, and four bedrooms were all \"basic\" amenities. The opulence shone through in the internal and external detail. All of the interior decorative wood—including staircases, arches, and washstands—was solid mahogany, the cylinder glass was imported from France, and all the mantels were made of the finest, most-fashionable marble. Outside, the first-floor Ionic and second-floor Corinthian columns are placed en antae (bracketed by box columns), their cream tone contrasting the dark, intricate cast-iron galleries and balustrade. All of this is framed beneath a tall, bracketed cornice and surrounded by a delicate cast-iron fence.\n\nUnfortunately, Albert Brevard spent very little time in his luxurious dream home, and after his death in 1859 at only 54 years old, his wife and children returned to their native Missouri where she died eight months later. Their children sold the house in 1869 to cotton broker Emory Clapp, the only person to make any substantial architectural change to the building. Before his death in 1880, Clapp added a library and bedroom above it along with a corresponding gallery on the Camp Street side. The Clapp family owned the home until 1935. Larger interior renovations were made by a few subsequent owners, including prominent Republican lawyer and federal Judge John Minor Wisdom who owned the home between 1947 and 1972.\n\nUntil 2010, this grand home belonged to New Orleans' resident queen of supernatural literature Anne Rice and served as the setting for her 1990 novel The Witching Hour. Visitors to the Rice home said the family both preserved the elegant character and details of the historic structure while also adding their own sense of style—including an extensive collection of antique European dolls displayed in the formal parlor.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Brevard_Clapp_Rice_52f6cb6d-ebd6-4a5e-9fdc-b9970feb215c.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08015,
+          29.92967
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 4: Rodenberg-Lane-Gundlach House",
+        "description": "Straying from the popular Italianate style so popular in the Garden District is this Greek Revival mansion, built and occupied by German-native and feed dealer John H. Rodenberg in 1853. This grand two-and-a-half-story estate sported bronze door knobs, cypress woodwork, and doors with keyhole locks (invented in 1848; we still use a variation of this same design today!) within 18-inch thick walls and beneath 14-foot ceilings. With over 9,000 square feet of space, Rodenberg and his wife began a sort of tradition at 1238 Philip St.: a full house. Upon moving into the home, the couple was accompanied by their six children—ranging from 17 to 2 years old—their maid Sarah, and their butler Wilhelm. \n\nThe house was sold in 1867 but passed into new hands due to bankruptcy and then an auction, where one woman bought and then conveyed the home to Ann Eliza Gary, the wife of Confederate veteran and cotton factor John T. Hardie in 1869. The Hardie family brought another set of six children along with four live-in servants, adding three more children and one more servant in the first ten years. After an additional four years with 16 people under one roof, Mrs. Hardie purchased an adjacent lot to expand. Three of the subsequent owners were veterans—two Confederate and one from World War I. English awning manufacturer William Henry Dark Brook and his wife shared the home with an adult daughter, two maids, a butler, and two cooks, and his successor, state legislator David Pipes, expanded the property even further to accommodate his wife and seven children. Mrs. Pipes sold the home to her grandson-in-law and federal judge Wayne Borah, whose heirs sold the property to Harry Merritt Lane Jr. in 1966. The Lanes put the house through some major renovations before selling the property to the current owners, the Gundlachs, in 1987.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Rodenberg_Lane_79f3378d-bda4-424f-82d1-a92da23d2947.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.07927,
+          29.93026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 5: Women's Opera Guild House",
+        "description": "This beautiful combination of Italianate and Greek Revival-style architecture is another home that now serves as something more. Behind its intricate iron gate, the pristine Women’s Opera Guild House has long stood as a base for the cultivation of New Orleans’ artistic scene. The original house was built in 1858 for merchant Edward Davis by William Freret (cousin of the previously-mentioned James Freret). Sometime in the late 19th century, the distinctive octagonal bay with its delicate entablature was added to the structure. Among the highlights of this well-manicured property include the detailing around the uppermost windows, the elegant design of the front door glass, cast-iron balustrade, and the Corinthian and Ionic columns.\n\nThe most notable owners of the home were Dr. Herman deBachellé Seebold and his wife Nettie Kinney Seebold, known throughout New Orleans for their generous contributions to the arts. Dr. Seebold’s parents and siblings were also fixtures in the city’s artistic circles; his father W. E. Seebold was called the “art connoisseur of New Orleans” as he, along with owning an art shop and being a painter himself, hosted weekly gatherings for artists and writers including Mark Twain and George Washington Cable. Some of Seebold’s art is still hanging in the home today. Part of what drew the couple’s interest specifically to the New Orleans Opera was Mrs. Seebold’s cousin opera singer cousin Baronne de Wartegg who made her debut at New Orleans’ Grand Opera House. Mrs. Seebold was an active member of the Women’s Guild of the New Orleans Opera from its founding until her death in 1966.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Opera_House_3cb88d2d-6126-4c6a-a53b-c439e60a9695.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08270,
+          29.93083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 6: Robinson House",
+        "description": "This monument to Italianate architecture comes once again from Henry Howard, built for Virginia cotton merchant Walter G. Robinson and his new wife Emily Hanford, a woman over 20 years his junior. Construction began around 1857 but was, naturally, impeded by the Civil War. When it was finally completed in 1867, the estate was a pinnacle of opulence both inside and out. The double-curved verandahs give the house its distinct silhouette and are only enhanced by the cast-iron balustrade, cornice and parapet, and finely-carved front entrance. Overlooking the southern side of the yard— what was once a garden but now has a pool— is an intricate, rose-patterned cast-iron verandah, while the northern side still holds the two-story carriage house, which also contained the kitchen building. Robinson’s interior decor was just as lavish, with delicate plaster cornices and centerpieces on colorful, nearly 16-foot ceilings and a curved staircase in the large front hall.",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/W_G_Robinson_673e7026-11de-4de8-88f1-7e0adad28956.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08260,
+          29.92993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stop 7: Rendevouz Tavern",
+        "description": "Stop for a drink and some jazz music at this tavern on the historic Maganize Streeet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08566,
+          29.92460
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "End Point",
+        "description": "Finish your tour at the corner of St Charles Avenue and 8th Street, where you can board the streetcar again to explore more of the city"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.08879010445163,
+          29.929091521690466
+        ]
+      }
+    }
+  ]
 }

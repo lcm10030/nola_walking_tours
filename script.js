@@ -16,9 +16,12 @@ const map = new mapboxgl.Map({
     },
     projection: 'globe', // display the map as a globe
     zoom: initialView.zoom,
-    center: initialView.center
+    center: initialView.center,
 });
 
+// Limit zoom levels and map bounds to focus on the area of interest
+map.setMinZoom(10);
+map.setMaxBounds([[-90.35, 29.75], [-89.85, 30.15]]);
 
 //Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
@@ -39,7 +42,7 @@ const neighborhoods = {
         zoom: 14,
         boundariesSource: 'garden-boundaries',
         walkSource: 'garden-walk',
-        stopsSource: 'tour-stops',
+        stopsSource: 'garden-stops',
         stopsFile: 'garden/gardenstops.json'
     },
     marigny: {
@@ -66,6 +69,13 @@ const neighborhoods = {
     }
 };
 
+//Named handlers so they can be removed later
+const neighborhoodClickHandlers = {
+    garden: () => selectNeighborhood('garden'),
+    marigny: () => selectNeighborhood('marigny'),
+    bywater: () => selectNeighborhood('bywater'),
+};
+
 // Get DOM elements
 const startWalkBtn = document.getElementById('start-walk-btn');
 const nextStopBtn = document.getElementById('next-stop-btn');
@@ -88,9 +98,9 @@ map.on('load', () => {
         data: 'garden/gardenwalk.json'
     });
 
-    map.addSource('tour-stops', {
+    map.addSource('garden-stops', {
         type: 'geojson',
-        data: 'garden/gardenstops.json'
+        data: { type: 'FeatureCollection', features: [] } // Start with empty data, will load on neighborhood selection
     });
 
     // Sources for Marigny
@@ -105,7 +115,7 @@ map.on('load', () => {
     });
     map.addSource('marigny-stops', {
         type: 'geojson',
-        data: 'marigny/marignystops.json'
+        data: { type: 'FeatureCollection', features: [] } // Start with empty data, will load on neighborhood selection
     });
     // Sources for Bywater
     map.addSource('bywater-boundaries', {
@@ -120,7 +130,7 @@ map.on('load', () => {
 
     map.addSource('bywater-stops', {
         type: 'geojson',
-        data: 'bywater/bywaterstops.json'
+        data: { type: 'FeatureCollection', features: [] } // Start with empty data, will load on neighborhood selection
     });
 
     // Layers - initially hidden for walks and stops
@@ -143,9 +153,9 @@ map.on('load', () => {
 
     // Garden tour stops point layer
     map.addLayer({
-        id: 'tour-stops-points',
+        id: 'garden-stops-points',
         type: 'circle',
-        source: 'tour-stops',
+        source: 'garden-stops',
         layout: {
             'visibility': 'none' // Hidden initially
         },
@@ -320,57 +330,21 @@ map.on('load', () => {
     });
 
     // Ensure stop points and walk lines are above boundaries so map clicks target stops first
-    // Added Bywater layers to the move list
     map.moveLayer('garden-walk');
-    map.moveLayer('tour-stops-points');
+    map.moveLayer('garden-stops-points');
     map.moveLayer('marigny-walk');
     map.moveLayer('marigny-stops-points');
     map.moveLayer('bywater-walk');
     map.moveLayer('bywater-stops-points');
 
-    // Load Garden stops initially (or none, but for now load Garden)
-    fetch('garden/gardenstops.json')
-        .then(response => response.json())
-        .then(data => {
-            data.features.forEach((feature, index) => {
-                feature.id = index;
-                if (feature.properties) {
-                    feature.properties.id = index;
-                }
-            });
-            tourStops = data.features;
-            map.getSource('tour-stops').setData(data);
-        });
-
-    // Load Marigny stops
-    fetch('marigny/marignystops.json')
-        .then(response => response.json())
-        .then(data => {
-            data.features.forEach((feature, index) => {
-                feature.id = index;
-                if (feature.properties) {
-                    feature.properties.id = index;
-                }
-            });
-            map.getSource('marigny-stops').setData(data);
-        });
-
-    // Make boundaries clickable to select neighborhoods
-    map.on('click', 'garden-boundaries', () => {
-        selectNeighborhood('garden');
-    });
-
-    map.on('click', 'marigny-boundaries', () => {
-        selectNeighborhood('marigny');
-    });
-
-    map.on('click', 'bywater-boundaries', () => {
-        selectNeighborhood('bywater');
-    });
+    //Click handlers for neighborhood boundaries
+    map.on('click', 'garden-boundaries', neighborhoodClickHandlers.garden);
+    map.on('click', 'marigny-boundaries', neighborhoodClickHandlers.marigny);
+    map.on('click', 'bywater-boundaries', neighborhoodClickHandlers.bywater);
 
     // Click handlers for stop points (only when visible)
-    map.on('click', 'tour-stops-points', (event) => {
-        handleStopClick(event, 'tour-stops');
+    map.on('click', 'garden-stops-points', (event) => {
+        handleStopClick(event, 'garden-stops');
     });
 
     map.on('click', 'marigny-stops-points', (event) => {
@@ -384,11 +358,11 @@ map.on('load', () => {
 
     // Pointer cursor for stops
     // Added bywater-stops-points to the list
-    map.on('mouseenter', ['tour-stops-points', 'marigny-stops-points', 'bywater-stops-points'], () => {
+    map.on('mouseenter', ['garden-stops-points', 'marigny-stops-points', 'bywater-stops-points'], () => {
         map.getCanvas().style.cursor = 'pointer';
     });
 
-    map.on('mouseleave', ['tour-stops-points', 'marigny-stops-points', 'bywater-stops-points'], () => {
+    map.on('mouseleave', ['garden-stops-points', 'marigny-stops-points', 'bywater-stops-points'], () => {
         map.getCanvas().style.cursor = '';
     });
 });
@@ -400,6 +374,23 @@ function selectNeighborhood(neighborhoodKey) {
     const neighborhood = neighborhoods[neighborhoodKey];
     if (!neighborhood) return;
 
+    // Re-enable the previous neighborhood's boundary before switching
+    if (currentNeighborhood) {
+        map.on('click', `${currentNeighborhood}-boundaries`, neighborhoodClickHandlers[currentNeighborhood]);
+    }
+
+    // Clear stops data from all other neighborhoods
+    Object.keys(neighborhoods).forEach(key => {
+        if (key !== neighborhoodKey) {
+            const source = map.getSource(neighborhoods[key].stopsSource);
+            if (source) source.setData({ type: 'FeatureCollection', features: [] });
+        }
+    });
+
+    // Disable click on the newly selected neighborhood's boundary
+    map.off('click', `${neighborhoodKey}-boundaries`, neighborhoodClickHandlers[neighborhoodKey]);
+
+    // Update current neighborhood to the newly selected one
     currentNeighborhood = neighborhoodKey;
 
     // Close welcome panel
@@ -417,7 +408,7 @@ function selectNeighborhood(neighborhoodKey) {
 
     // Hide all walks and stops
     map.setLayoutProperty('garden-walk', 'visibility', 'none');
-    map.setLayoutProperty('tour-stops-points', 'visibility', 'none');
+    map.setLayoutProperty('garden-stops-points', 'visibility', 'none');
     map.setLayoutProperty('marigny-walk', 'visibility', 'none');
     map.setLayoutProperty('marigny-stops-points', 'visibility', 'none');
     map.setLayoutProperty('bywater-walk', 'visibility', 'none');
@@ -643,9 +634,12 @@ closePanelBtn.addEventListener('click', () => {
     welcomePanel.classList.remove('hidden');
     document.getElementById('tour-controls').style.display = 'none';
 
+    // Resets highlighted stop on the map
+    updateActiveStop(-1);
+
     // Hide stops and walk
     map.setLayoutProperty('garden-walk', 'visibility', 'none');
-    map.setLayoutProperty('tour-stops-points', 'visibility', 'none');
+    map.setLayoutProperty('garden-stops-points', 'visibility', 'none');
     map.setLayoutProperty('marigny-walk', 'visibility', 'none');
     map.setLayoutProperty('marigny-stops-points', 'visibility', 'none');
     map.setLayoutProperty('bywater-walk', 'visibility', 'none');
@@ -657,6 +651,16 @@ closePanelBtn.addEventListener('click', () => {
         zoom: initialView.zoom,
         essential: true
     });
+
+    // re-enable the boundary click for whichever neighborhood was active
+    if (currentNeighborhood) {
+        map.on('click', `${currentNeighborhood}-boundaries`, neighborhoodClickHandlers[currentNeighborhood]);
+    }
+
+    // Reset all tour state so highlights are cleared on next visit
+    updateActiveStop(-1);
+    currentNeighborhood = null;
+    currentStop = -1;
 });
 
 // Close the welcome panel
