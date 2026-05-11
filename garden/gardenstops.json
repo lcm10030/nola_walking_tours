@@ -110,7 +110,8 @@
       "type": "Feature",
       "properties": {
         "name": "Stop 7: Rendevouz Tavern",
-        "description": "Stop for a drink and some jazz music at this tavern on the historic Maganize Streeet"
+        "description": "Stop for a drink and some jazz music at this tavern on the historic Maganize Streeet",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipOIPEfEFxn5Lc6XlrL7CBEdBi7lRsfiRSivsznU=w736-h368-k-no-pi0-ya180-ro0-fo100"
       },
       "geometry": {
         "type": "Point",
@@ -124,7 +125,8 @@
       "type": "Feature",
       "properties": {
         "name": "End Point",
-        "description": "Finish your tour at the corner of St Charles Avenue and 8th Street, where you can board the streetcar again to explore more of the city"
+        "description": "Finish your tour at the corner of St Charles Avenue and 8th Street, where you can board the streetcar again to explore more of the city",
+        "image":"https://cdn.whereyartworks.com/original/New_Orleans_Streetcars_2015-03-27-20-37-02.jpg"
       },
       "geometry": {
         "type": "Point",

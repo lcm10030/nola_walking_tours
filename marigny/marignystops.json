@@ -46,88 +46,98 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Stop 3: Brevard-Clapp-Rice House",
-        "description": "While the base structure of this house is not much different than most others in the area, the fine details are what set it apart as one of the Garden District's finest Greek Revival-style mansions. Commission merchant Albert Brevard had lived in New Orleans for five years before contracting architect James Calrow and builder Charles Pride to build a home for him and his family—insect and weather-resistant cypress wood for the galleries outside, cedar-lined closets, protective lightning rods, a 9000-gallon cistern for water, two servant's rooms, and four bedrooms were all \"basic\" amenities. The opulence shone through in the internal and external detail. All of the interior decorative wood—including staircases, arches, and washstands—was solid mahogany, the cylinder glass was imported from France, and all the mantels were made of the finest, most-fashionable marble. Outside, the first-floor Ionic and second-floor Corinthian columns are placed en antae (bracketed by box columns), their cream tone contrasting the dark, intricate cast-iron galleries and balustrade. All of this is framed beneath a tall, bracketed cornice and surrounded by a delicate cast-iron fence.\n\nUnfortunately, Albert Brevard spent very little time in his luxurious dream home, and after his death in 1859 at only 54 years old, his wife and children returned to their native Missouri where she died eight months later. Their children sold the house in 1869 to cotton broker Emory Clapp, the only person to make any substantial architectural change to the building. Before his death in 1880, Clapp added a library and bedroom above it along with a corresponding gallery on the Camp Street side. The Clapp family owned the home until 1935. Larger interior renovations were made by a few subsequent owners, including prominent Republican lawyer and federal Judge John Minor Wisdom who owned the home between 1947 and 1972.\n\nUntil 2010, this grand home belonged to New Orleans' resident queen of supernatural literature Anne Rice and served as the setting for her 1990 novel The Witching Hour. Visitors to the Rice home said the family both preserved the elegant character and details of the historic structure while also adding their own sense of style—including an extensive collection of antique European dolls displayed in the formal parlor.",
-        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Brevard_Clapp_Rice_52f6cb6d-ebd6-4a5e-9fdc-b9970feb215c.jpg"
+        "name": "Stop 3: Elysian Fields Avenue",
+        "description":"Elysian Fields Avenue cuts diagonally across the Marigny grid like a scar from an older geography — it follows the ridge of a natural levee, one of the few elevated strips of land in this low-lying city, and that accident of topography gave it a civic ambition that the surrounding residential streets never quite matched. The avenue is wide and formal by New Orleans standards, with a narrow neutral ground running its center, flanked by a mix of building types that reflects every era of the neighborhood's history. \n\n The grandest structures are the double-gallery Creole townhouses from the mid-19th century: two full stories, the lower gallery supported on brick or stuccoed columns, the upper on slender wooden posts, both extending over the sidewalk to create a shaded arcade that is at once practical and monumental. The proportions are distinctly Creole — wider than they are tall, with shallow-pitched roofs hidden behind parapets, long shuttered openings that blur the boundary between inside and outside, and an overall horizontality that hugs the flat Louisiana ground rather than reaching skyward.",
+        "image": "https://ssl.cdn-redfin.com/photo/166/mbphotov3/319/genMid.2253319_6.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.08015,
-          29.92967
+          -90.05648, 29.96656
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Stop 4: Rodenberg-Lane-Gundlach House",
-        "description": "Straying from the popular Italianate style so popular in the Garden District is this Greek Revival mansion, built and occupied by German-native and feed dealer John H. Rodenberg in 1853. This grand two-and-a-half-story estate sported bronze door knobs, cypress woodwork, and doors with keyhole locks (invented in 1848; we still use a variation of this same design today!) within 18-inch thick walls and beneath 14-foot ceilings. With over 9,000 square feet of space, Rodenberg and his wife began a sort of tradition at 1238 Philip St.: a full house. Upon moving into the home, the couple was accompanied by their six children—ranging from 17 to 2 years old—their maid Sarah, and their butler Wilhelm. \n\nThe house was sold in 1867 but passed into new hands due to bankruptcy and then an auction, where one woman bought and then conveyed the home to Ann Eliza Gary, the wife of Confederate veteran and cotton factor John T. Hardie in 1869. The Hardie family brought another set of six children along with four live-in servants, adding three more children and one more servant in the first ten years. After an additional four years with 16 people under one roof, Mrs. Hardie purchased an adjacent lot to expand. Three of the subsequent owners were veterans—two Confederate and one from World War I. English awning manufacturer William Henry Dark Brook and his wife shared the home with an adult daughter, two maids, a butler, and two cooks, and his successor, state legislator David Pipes, expanded the property even further to accommodate his wife and seven children. Mrs. Pipes sold the home to her grandson-in-law and federal judge Wayne Borah, whose heirs sold the property to Harry Merritt Lane Jr. in 1966. The Lanes put the house through some major renovations before selling the property to the current owners, the Gundlachs, in 1987.",
-        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Rodenberg_Lane_79f3378d-bda4-424f-82d1-a92da23d2947.jpg"
+        "name": "Stop 4: JamNola",
+        "description":"The building is a fine example of the Creole commercial townhouse — brick facade with arched openings, a corbeled brick cornice, and a spatial plan (front hall, main room, rear courtyard) that descends directly from 18th-century French colonial building practice. The museum inside is worth visiting: its exhibits on New Orleans music and culture are excellent, and the building's layered interior spaces are themselves architecturally interesting.",
+        "image":"https://media.cntraveler.com/photos/69779c5438f25fdc03c481c9/16:9/w_2560,c_limit/JAMNOLA1.jpeg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.07927,
-          29.93026
+          -90.05824, 29.96746
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Stop 5: Women's Opera Guild House",
-        "description": "This beautiful combination of Italianate and Greek Revival-style architecture is another home that now serves as something more. Behind its intricate iron gate, the pristine Women’s Opera Guild House has long stood as a base for the cultivation of New Orleans’ artistic scene. The original house was built in 1858 for merchant Edward Davis by William Freret (cousin of the previously-mentioned James Freret). Sometime in the late 19th century, the distinctive octagonal bay with its delicate entablature was added to the structure. Among the highlights of this well-manicured property include the detailing around the uppermost windows, the elegant design of the front door glass, cast-iron balustrade, and the Corinthian and Ionic columns.\n\nThe most notable owners of the home were Dr. Herman deBachellé Seebold and his wife Nettie Kinney Seebold, known throughout New Orleans for their generous contributions to the arts. Dr. Seebold’s parents and siblings were also fixtures in the city’s artistic circles; his father W. E. Seebold was called the “art connoisseur of New Orleans” as he, along with owning an art shop and being a painter himself, hosted weekly gatherings for artists and writers including Mark Twain and George Washington Cable. Some of Seebold’s art is still hanging in the home today. Part of what drew the couple’s interest specifically to the New Orleans Opera was Mrs. Seebold’s cousin opera singer cousin Baronne de Wartegg who made her debut at New Orleans’ Grand Opera House. Mrs. Seebold was an active member of the Women’s Guild of the New Orleans Opera from its founding until her death in 1966.",
-        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/Opera_House_3cb88d2d-6126-4c6a-a53b-c439e60a9695.jpg"
+        "name": "Stop 5: North Rampart Street Corridor",
+        "description":"Walk Rampart a few blocks into the neighborhood. This was historically where the Creole faubourgs met the back-of-town, and the streetscape reflects that edge condition — vernacular cottages, corner commercial buildings, mid-century structures, all pressed together. Look for the narrow service alleys between properties, a holdover from the French colonial arpent lot system, where long thin lots were laid out perpendicular to the river.",
+        "image":"https://images.homes.com/listings/215/3560173154-660515402/2514-n-rampart-st-new-orleans-la-primaryphoto.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.08270,
-          29.93083
+          -90.06091, 29.96729
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Stop 6: Robinson House",
-        "description": "This monument to Italianate architecture comes once again from Henry Howard, built for Virginia cotton merchant Walter G. Robinson and his new wife Emily Hanford, a woman over 20 years his junior. Construction began around 1857 but was, naturally, impeded by the Civil War. When it was finally completed in 1867, the estate was a pinnacle of opulence both inside and out. The double-curved verandahs give the house its distinct silhouette and are only enhanced by the cast-iron balustrade, cornice and parapet, and finely-carved front entrance. Overlooking the southern side of the yard— what was once a garden but now has a pool— is an intricate, rose-patterned cast-iron verandah, while the northern side still holds the two-story carriage house, which also contained the kitchen building. Robinson’s interior decor was just as lavish, with delicate plaster cornices and centerpieces on colorful, nearly 16-foot ceilings and a curved staircase in the large front hall.",
-        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_675,q_65,w_1200/v1/clients/neworleans/W_G_Robinson_673e7026-11de-4de8-88f1-7e0adad28956.jpg"
+        "name": "Stop 6: Dauphine Street, the Quiet Interior",
+        "description":"Dauphine is the soul of the residential Marigny. The blocks between Frenchmen and Elysian Fields are lined almost continuously with double shotguns and Creole cottages, nearly flush to the brick sidewalks, painted in every shade of the Caribbean spectrum. Walk slowly. Notice the variations on the shotgun form — some have side-hall additions, some have been camelbacked, some retain their original wood siding and louvered shutters. This is one of the most intact working-class 19th-century streetscapes in the country.",
+        "image":"https://photos.zillowstatic.com/fp/dfae3b21ecec3d104b98d418c1138646-cc_ft_960.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.08260,
-          29.92993
+          -90.05954, 29.96540
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Stop 7: Rendevouz Tavern",
-        "description": "Stop for a drink and some jazz music at this tavern on the historic Maganize Streeet"
+        "name": "Stop 7: Washington Square Park",
+        "description": "Washington Square is the Marigny's central gathering place, anchored by Elysian Fields Avenue — the street Tennessee Williams immortalized. The buildings framing the square on Elysian Fields are among the neighborhood's grandest: two-story Creole townhouses with slender wooden columns supporting upper galleries that extend over the sidewalk, creating a shaded arcade that reads almost Italianate in its rhythm. The park itself has a fine George Washington statue installed by local Freemasons. Sit on a bench under the live oaks and absorb the spatial quality — the way the dense neighborhood fabric opens up around this green room.",
+        "image":"https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,q_75,w_1200/v1/crm/neworleans/WashingtonSquare-Park-3-83610ec65056b36_836113ac-5056-b365-abbd438103906abc.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.08566,
-          29.92460
+          -90.05689, 29.96528
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "End Point",
-        "description": "Finish your tour at the corner of St Charles Avenue and 8th Street, where you can board the streetcar again to explore more of the city"
+        "name": "Stop 8: Frenchmen Street",
+        "description":"This is where the architecture and the street life fuse. The blocks of Frenchmen from Chartres to N. Peters are lined with 19th-century Creole commercial buildings — ground-floor shops with residential above, modest brick or stuccoed facades, pressed-tin cornices, second-floor balconies cantilevered or supported on slender iron posts over the sidewalk. The buildings step in and out of the street edge, creating a lively, irregular rhythm. In the morning, before the clubs open, you can read the architecture clearly. The Spotted Cat at 623 is a former corner grocery; the Maison at 508 shows the double-width commercial façade type. Look up at the cornices and the ironwork — much of it original.",
+        "image":"https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/neworleans/NOTMC_38958_02fddb97-157a-43b0-8588-5e3772a75a7f.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.08879010445163,
-          29.929091521690466
+          -90.05781, 29.96406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "End Point: French Market",
+        "description":"End your tour at the French Market, a historic open-air market that has been a hub of commerce and culture in New Orleans since the late 18th century. Browse the stalls for local crafts, souvenirs, and delicious food, or simply soak in the vibrant atmosphere of this iconic New Orleans destination.",
+        "image":"https://cdn1.matadornetwork.com/blogs/1/2023/03/french-market-new-orleans-vendors.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.05708, 29.96088
         ]
       }
     }
