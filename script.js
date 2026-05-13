@@ -36,7 +36,7 @@ let boundaryPopup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false
 const neighborhoods = {
     garden: {
         name: 'Garden District',
-        description:"The Garden District of New Orleans was developed in the 1830s to 1840s as a luxurious, low-density suburb for wealthy Americans avoiding the crowded, Creole-dominated French Quarter. Originally the Livaudais Plantation, it became part of Lafayette City in 1833 and was annexed by New Orleans in 1852. It is renowned for its Greek Revival mansions, lush gardens, and late-Victorian homes, having been declared a National Historic Landmark in 1974.",
+        description: "The Garden District of New Orleans was developed in the 1830s to 1840s as a luxurious, low-density suburb for wealthy Americans avoiding the crowded, Creole-dominated French Quarter. Originally the Livaudais Plantation, it became part of Lafayette City in 1833 and was annexed by New Orleans in 1852. It is renowned for its Greek Revival mansions, lush gardens, and late-Victorian homes, having been declared a National Historic Landmark in 1974.",
         photos: ['https://www.neworleanslegendarywalkingtours.com/garden-district-trolley.webp'],
         center: [-90.08441, 29.93134],
         zoom: 14,
@@ -571,7 +571,7 @@ nextStopBtn.addEventListener('click', () => {
         const tourCompleteBtn = document.createElement('button');
         tourCompleteBtn.textContent = 'Tour Complete! Explore Other Neighborhoods';
         tourCompleteBtn.classList.add('tour-complete-btn');
-        
+
         tourCompleteBtn.addEventListener('click', () => {
             closePanelBtn.click();
             tourCompleteBtn.remove();
