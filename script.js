@@ -36,7 +36,7 @@ let boundaryPopup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false
 const neighborhoods = {
     garden: {
         name: 'Garden District',
-        description: 'The Garden District is a historic neighborhood known for its stunning Victorian architecture, oak-lined streets, and beautiful gardens. Explore the opulent mansions and learn about the history of this iconic area.',
+        description:"The Garden District of New Orleans was developed in the 1830s to 1840s as a luxurious, low-density suburb for wealthy Americans avoiding the crowded, Creole-dominated French Quarter. Originally the Livaudais Plantation, it became part of Lafayette City in 1833 and was annexed by New Orleans in 1852. It is renowned for its Greek Revival mansions, lush gardens, and late-Victorian homes, having been declared a National Historic Landmark in 1974.",
         photos: ['https://www.neworleanslegendarywalkingtours.com/garden-district-trolley.webp'],
         center: [-90.08441, 29.93134],
         zoom: 14,
@@ -351,13 +351,11 @@ map.on('load', () => {
         handleStopClick(event, 'marigny-stops');
     });
 
-    // Added click handler for Bywater stops
     map.on('click', 'bywater-stops-points', (event) => {
         handleStopClick(event, 'bywater-stops');
     });
 
     // Pointer cursor for stops
-    // Added bywater-stops-points to the list
     map.on('mouseenter', ['garden-stops-points', 'marigny-stops-points', 'bywater-stops-points'], () => {
         map.getCanvas().style.cursor = 'pointer';
     });
@@ -403,7 +401,8 @@ function selectNeighborhood(neighborhoodKey) {
     map.flyTo({
         center: neighborhood.center,
         zoom: neighborhood.zoom,
-        essential: true
+        essential: true,
+        padding: { right: 500 } // Add padding to the right to accommodate the side panel
     });
 
     // Hide all walks and stops
@@ -457,6 +456,9 @@ function selectNeighborhood(neighborhoodKey) {
     updateActiveStop(-1);
     nextStopBtn.disabled = true;
     nextStopBtn.textContent = 'Next Stop';
+    startWalkBtn.textContent = 'Start Walk';
+    startWalkBtn.disabled = false;
+    closePanelBtn.style.display = '';
 }
 
 /**
@@ -478,7 +480,8 @@ function handleStopClick(event, stopsSource) {
     map.flyTo({
         center: stopCoords,
         zoom: 16,
-        essential: true
+        essential: true,
+        padding: { right: 500 } // Add padding to the right to accommodate the side panel   
     });
 
     showStopPopup(stop);
@@ -513,25 +516,38 @@ neighborhoodBtns.forEach(btn => {
     });
 });
 
-// Start Walk button - zooms to the start of the walk for current neighborhood
+// Start Walk / Previous Stop button
 startWalkBtn.addEventListener('click', () => {
     if (!currentNeighborhood || tourStops.length === 0) return;
 
-    updateActiveStop(0);
-    const startCoords = tourStops[0].geometry.coordinates;
+    // If tour hasn't started yet, start it
+    if (currentStop < 0) {
+        updateActiveStop(0);
+        const startCoords = tourStops[0].geometry.coordinates;
+        map.flyTo({ center: startCoords, zoom: 16, essential: true, padding: { right: 500 } });
+        nextStopBtn.disabled = false;
+        nextStopBtn.textContent = 'Next Stop';
+        startWalkBtn.textContent = 'Previous Stop';
+        startWalkBtn.disabled = true;
+        showStopPopup(tourStops[0]);
+        closePanelBtn.style.display = 'none';
+        return;
+    }
 
-    map.flyTo({
-        center: startCoords,
-        zoom: 16,
-        essential: true
-    });
+    // Otherwise go to previous stop
+    if (currentStop <= 0) return;
+    updateActiveStop(currentStop - 1);
+    const stopCoords = tourStops[currentStop].geometry.coordinates;
+    map.flyTo({ center: stopCoords, zoom: 16, essential: true, padding: { right: 500 } });
+    showStopPopup(tourStops[currentStop]);
 
-    // Enable the Next Stop button
-    nextStopBtn.disabled = false;
     nextStopBtn.textContent = 'Next Stop';
+    nextStopBtn.disabled = false;
 
-    // Show stop info in side panel
-    showStopPopup(tourStops[0]);
+    // Disable previous button if we're back at the first stop
+    if (currentStop === 0) {
+        startWalkBtn.disabled = true;
+    }
 });
 
 // Next Stop button - navigates to each subsequent stop
@@ -540,20 +556,29 @@ nextStopBtn.addEventListener('click', () => {
 
     updateActiveStop(currentStop + 1);
     const stopCoords = tourStops[currentStop].geometry.coordinates;
-
-    map.flyTo({
-        center: stopCoords,
-        zoom: 16,
-        essential: true
-    });
-
-    // Show stop info in side panel
+    map.flyTo({ center: stopCoords, zoom: 16, essential: true, padding: { right: 500 } });
     showStopPopup(tourStops[currentStop]);
 
-    // Update button text if at the last stop
+    // Enable previous button once we move past first stop
+    startWalkBtn.disabled = false;
+    startWalkBtn.textContent = 'Previous Stop';
+
     if (currentStop === tourStops.length - 1) {
-        nextStopBtn.textContent = 'Tour Complete';
-        nextStopBtn.disabled = true;
+        nextStopBtn.style.display = 'none';
+        startWalkBtn.style.display = 'none';
+        closePanelBtn.style.display = '';
+
+        const tourCompleteBtn = document.createElement('button');
+        tourCompleteBtn.textContent = 'Tour Complete! Explore Other Neighborhoods';
+        tourCompleteBtn.classList.add('tour-complete-btn');
+        
+        tourCompleteBtn.addEventListener('click', () => {
+            closePanelBtn.click();
+            tourCompleteBtn.remove();
+            nextStopBtn.style.display = '';
+            startWalkBtn.style.display = '';
+        });
+        document.getElementById('tour-controls').appendChild(tourCompleteBtn);
     }
 });
 
@@ -591,7 +616,8 @@ function showNeighborhoodPanel(neighborhood, stops) {
             map.flyTo({
                 center: stopCoords,
                 zoom: 16,
-                essential: true
+                essential: true,
+                padding: { right: 500 } // Add padding to the right to accommodate the side panel
             });
             nextStopBtn.disabled = false;
             nextStopBtn.textContent = 'Next Stop';
